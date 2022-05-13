@@ -7,7 +7,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Currency _currency;
+  Currency? _currency;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   value: currency,
                 );
               }).toList(),
-              onChanged: (Currency currency) {
+              onChanged: (Currency? currency) {
                 setState(() {
                   _currency = currency;
                 });
@@ -45,9 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30.0,
             ),
             if (_currency != null) ...[
-              Text('The currency you have chosen is ${_currency.name},'),
-              Text('the abbreviation is ${_currency.abbreviation},'),
-              Text('the symbol is ${_currency.symbol}.'),
+              Text('The currency you have chosen is ${_currency!.name},'),
+              Text('the abbreviation is ${_currency!.abbreviation},'),
+              Text('the symbol is ${_currency!.symbol}.'),
             ],
             const SizedBox(
               height: 20.0,
